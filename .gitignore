@@ -1,0 +1,15 @@
+# Compiled class files & Maven build folders
+target/
+*.jar
+*.war
+
+# IntelliJ IDEA & Eclipse files
+.idea/
+*.iml
+*.iws
+.vscode/
+
+# OS & Logs
+.DS_Store
+Thumbs.db
+*.log

@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: patchnotes-postgres
+    environment:
+      POSTGRES_USER: patchnotes
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: endpoint_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    container_name: patchnotes-redis
+    ports:
+      - "6379:6379"
+
+  rabbitmq:
+    image: rabbitmq:3.13-management-alpine
+    container_name: patchnotes-rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: patchnotes
+      RABBITMQ_DEFAULT_PASS: password
+    ports:
+      - "5672:5672"   # AMQP Protocol (Spring Boot कनेक्शन के लिए)
+      - "15672:15672" # Management UI (http://localhost:15672)
+
+volumes:
+  postgres_data:
