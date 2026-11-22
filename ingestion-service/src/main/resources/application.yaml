@@ -1,0 +1,28 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: ingestion-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ingestion_db
+    username: patchnotes
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: false
+  data:
+    redis:
+      host: localhost
+      port: 6379
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: patchnotes
+    password: password
+
+  logging:
+    level:
+      org.hibernate.SQL: DEBUG

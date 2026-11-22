@@ -1,15 +1,27 @@
+
 # Compiled class files & Maven build folders
 target/
+out/
+*.class
 *.jar
 *.war
 
-# IntelliJ IDEA & Eclipse files
+# IntelliJ IDEA & Eclipse
 .idea/
 *.iml
 *.iws
 .vscode/
+.classpath
+.project
+.settings/
 
 # OS & Logs
 .DS_Store
 Thumbs.db
 *.log
+
+# Environment secrets
+.env
+.env.*
+!.env.example
+

@@ -5,8 +5,8 @@ services:
     image: postgres:16-alpine
     container_name: patchnotes-postgres
     environment:
-      POSTGRES_USER: patchnotes
-      POSTGRES_PASSWORD: password
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: endpoint_db
     ports:
       - "5432:5432"
@@ -23,8 +23,8 @@ services:
     image: rabbitmq:3.13-management-alpine
     container_name: patchnotes-rabbitmq
     environment:
-      RABBITMQ_DEFAULT_USER: patchnotes
-      RABBITMQ_DEFAULT_PASS: password
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD}
     ports:
       - "5672:5672"   # AMQP Protocol (Spring Boot कनेक्शन के लिए)
       - "15672:15672" # Management UI (http://localhost:15672)
