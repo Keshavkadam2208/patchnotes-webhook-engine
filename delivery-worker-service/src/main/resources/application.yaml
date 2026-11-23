@@ -1,0 +1,22 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: delivery-worker-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/delivery_db
+    username: patchnotes
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: patchnotes
+    password: password
+
+patchnotes:
+  endpoint-service:
+    url: http://localhost:8081
